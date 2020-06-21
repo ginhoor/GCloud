@@ -1,0 +1,26 @@
+<script>
+  function readFile(filePath) {
+    let xhr = new XMLHttpRequest(),
+      okStatus = document.location.protocol === "file:" ? 0 : 200;
+    xhr.open('GET',filePath,false);
+    xhr.overrideMimeType("text/plain;charset=utf-8");//默认为utf-8
+    xhr.send(null);
+    return xhr.status === okStatus ? xhr.responseText : null;
+  }
+
+  function createA(url, desc) {
+    return  "<a href= '"+url+"' style='text-decoration:none;' target='_blank'> "+desc+" </a>"
+  }
+  
+  let host = "http://" + readFile("./network/ip/home_network_ip");
+
+  let pluto = createA(host+":8000","Pluto")
+  document.write(pluto)
+
+  let webmin = createA(host+":10000","Webmin")
+  document.write(webmin)
+
+  let scrapyd = createA(host+":5000","Scrapyd")
+  document.write(scrapyd)
+
+</script>
