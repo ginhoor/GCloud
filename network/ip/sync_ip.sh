@@ -18,6 +18,10 @@ get_network_ip_api="http://ipv4.icanhazip.com"
 ############################################################
 
 network_ip=$(curl ${get_network_ip_api})
+if [ -z ${network_ip}]; then
+    echo 获取外网IP失败
+    exit
+fi
 # 外网IP
 echo 外网IP: ${network_ip}
 
