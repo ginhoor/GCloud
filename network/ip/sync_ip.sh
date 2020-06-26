@@ -5,7 +5,7 @@
 
 dirname=$(dirname "$0")
 tag=$1
-if [ $tag == "" ];then
+if [ "$tag" == "" ];then
     echo 需要输入环境标识符
     exit
 fi
