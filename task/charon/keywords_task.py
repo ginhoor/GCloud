@@ -18,6 +18,7 @@ def start_create_request(service, date=None):
     params="date={}".format(date)
 
     url = "{}/{}?{}".format(host, path, params)
+    print(url)
     response = requests.get(url)
     print(response)
 
