@@ -21,7 +21,7 @@ def start_create_request(service, date=None):
     print(response)
     if response.status_code == 500:
         os._exit(1)
-    time.sleep(5)
+    time.sleep(1.5)
 
 def create_recently_data(day_size, service_list):
     today = cp_time.cp_now_to_timestamp("%Y-%m-%d")
