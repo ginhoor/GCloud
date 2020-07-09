@@ -35,6 +35,15 @@ def create_recently_data(day_size, service_list):
         for service in service_list:
             start_create_request(service, date)
 
+def create_range_data(start_date, day_size, service_list):
+    start = cp_time.cp_date_to_timestamp(start_date,"%Y-%m-%d")
+    offset = 60*60*24
+    for index in range(day_size):
+        day = start + offset*index
+        date = cp_time.cp_timestamp_to_date(day, "%Y-%m-%d")
+        for service in service_list:
+            start_create_request(service, date)
+
 if __name__ == "__main__":
     fetch_type = int(sys.argv[1])
     if fetch_type == 1:
@@ -55,10 +64,14 @@ if __name__ == "__main__":
         # 分析截止今天的x天时间，专业新闻
         service_list = ["news", "economy"]
         create_recently_data(day_size, service_list)
-
     elif fetch_type == 4:
-        day_size = sys.argv[2]
-
+        day_size = int(sys.argv[2])
         # 分析截止今天的x天时间，社会新闻
         service_list = ["society"]
         create_recently_data(day_size, service_list)
+    elif fetch_type == 5:
+        start_date = sys.argv[2]
+        day_size = int(sys.argv[3])
+        # 分析一段时间，社会新闻
+        service_list = ["news", "economy"]
+        create_range_data(start_date, day_size, service_list)
