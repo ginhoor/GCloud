@@ -4,7 +4,8 @@
 from charon_pluto.extension import cp_time
 import sys,time,requests, os
 
-host = "http://127.0.0.1:12306"
+#host = "http://127.0.0.1:12306"
+host = "http://172.66.1.10:12306"
 
 def start_create_request(service, date=None):
     if date is None:
