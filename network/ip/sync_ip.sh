@@ -14,7 +14,7 @@ file_name="${tag}_network_ip"
 file_path=${dirname}/${file_name}
 echo ${file_path}
 
-get_network_ip_api="http://ipv4.icanhazip.com"
+get_network_ip_api="http://ipinfo.io/ip"
 ############################################################
 
 network_ip=$(curl ${get_network_ip_api})
