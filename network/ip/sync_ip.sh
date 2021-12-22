@@ -18,7 +18,7 @@ get_network_ip_api="http://members.3322.org/dyndns/getip"
 ############################################################
 
 network_ip=$(curl ${get_network_ip_api})
-if [ -z ${network_ip}]; then
+if test -z ${network_ip}; then
     echo 获取外网IP失败
     exit
 fi
