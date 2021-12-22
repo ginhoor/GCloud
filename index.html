@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>GCloud</title>
-  
+
   <style type="text/css">
     :root {
     --side-bar-bg-color: #fff;
@@ -12,7 +12,7 @@
     --active-file-border-color: #f22f27;
     /* --active-file-bg-color: #fff3f0; */
     --primary-color: #f22f27;
-    
+
     /* 中性色 */
     --mid-1: #ffffff;
     --mid-2: #fafafa;
@@ -48,7 +48,7 @@
     }
     #container {
       /* 顶部| 水平方向| 底部*/
-      padding: 1em 2em 2em;  
+      padding: 1em 2em 2em;
     }
   </style>
   <script>
@@ -74,26 +74,17 @@
       p.appendChild(contentEle)
       return p
     }
-    
+
     window.onload = (event) => {
-      let a1 = createA(host+":8000","1、Pluto")
+      let a1 = createA(host+":1015","GinhoorNas")
       let p1 = createP(a1)
       document.getElementById('container').appendChild(p1)
-
-      let a2 = createA(host+":10000","2、Webmin")
-      let p2 = createP(a2)
-      document.getElementById('container').appendChild(p2)
-
-      let a3 = createA(host+":5000","3、Scrapyd")
-      let p3 = createP(a3)
-      document.getElementById('container').appendChild(p3)
     };
-    
+
   </script>
 </head>
 <body>
   <div id="container">
-
   </div>
 </body>
 </html>
