@@ -14,16 +14,24 @@ file_name="${tag}_network_ip"
 file_path=${dirname}/${file_name}
 echo ${file_path}
 
-get_network_ip_api="http://members.3322.org/dyndns/getip"
+get_network_ip_api="http://cip.cc"
 ############################################################
 
-network_ip=$(curl ${get_network_ip_api})
-if test -z ${network_ip}; then
-    echo 获取外网IP失败
+network_ip_result=$(curl ${get_network_ip_api})
+if test -z "${network_ip_result}"; then
+    echo 请求IP API失败
     exit
 fi
 # 外网IP
-echo 外网IP: ${network_ip}
+echo ${network_ip_result}
+
+network_ip=$(echo ${network_ip_result}| sed -nr "s#[^0-9]*((1[0-9]{2}|2[0-4][0-9]|25[0-5]|[1-9][0-9]|[1-9])(\.(1[0-9]{2}|2[0-4][0-9]|25[0-5]|[1-9][0-9]|[0-9])){3}).*#\1#p")
+echo 当前外网IP：${network_ip}
+
+if test -z "${network_ip}"; then
+    echo 解析IP失败
+    exit
+fi
 
 need_update=0
 
@@ -39,6 +47,7 @@ else
 fi
 
 if [ ${need_update} -eq 1 ];then
+    echo 监测到IP变更
     # 记录外网IP
     echo ${network_ip} > ${file_path}
     # 切回项目地址
