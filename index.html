@@ -76,14 +76,20 @@
     }
 
     window.onload = (event) => {
-      let a1 = createA(host+":1015","GinhoorNas")
+      let a1 = createA(host+":1015","DSM")
       let p1 = createP(a1)
       document.getElementById('container').appendChild(p1)
+
+      a1 = createA(host+":9091","Transmission")
+      p1 = createP(a1)
+      document.getElementById('container').appendChild(p1)
+
     };
 
   </script>
 </head>
 <body>
+  <h1>GinhoorNas</h1>
   <div id="container">
   </div>
 </body>
