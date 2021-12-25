@@ -62,6 +62,9 @@
     }
 
     let host = "http://" + readFile("./network/ip/home_network_ip");
+
+    let local = "http://192.168.2.22";
+
     function createA(url, desc) {
       var a = document.createElement('a')
       a.href = url
@@ -79,14 +82,17 @@
       let a1 = createA(host+":1015","DSM")
       let p1 = createP(a1)
       document.getElementById('container').appendChild(p1)
+      document.getElementById('local_container').appendChild(p1)
 
       a1 = createA(host+":9091","Transmission")
       p1 = createP(a1)
       document.getElementById('container').appendChild(p1)
+      document.getElementById('local_container').appendChild(p1)
 
       a1 = createA(host+":5700","青龙面板")
       p1 = createP(a1)
       document.getElementById('container').appendChild(p1)
+      document.getElementById('local_container').appendChild(p1)
     };
 
   </script>
@@ -94,6 +100,10 @@
 <body>
   <h1>GinhoorNas</h1>
   <div id="container"></div>
+
+  <h1>局域网</h1>
+  <div id="local_container"></div>
+
 </body>
 </html>
 
