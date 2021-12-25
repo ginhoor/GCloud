@@ -79,20 +79,18 @@
     }
 
     window.onload = (event) => {
-      let a1 = createA(host+":1015","DSM")
-      let p1 = createP(a1)
-      document.getElementById('container').appendChild(p1)
-      document.getElementById('local_container').appendChild(p1)
+      const aList = [
+        createA(host+":1015","DSM"),
+        createA(host+":9091","Transmission"),
+        createA(host+":5700","Qinglong"),
+        createA(host+":4399","Dos Game")
+      ]
 
-      a1 = createA(host+":9091","Transmission")
-      p1 = createP(a1)
-      document.getElementById('container').appendChild(p1)
-      document.getElementById('local_container').appendChild(p1)
-
-      a1 = createA(host+":5700","青龙面板")
-      p1 = createP(a1)
-      document.getElementById('container').appendChild(p1)
-      document.getElementById('local_container').appendChild(p1)
+      aList.forEach(a => {
+        let p = createP(a)
+        document.getElementById('container').appendChild(p)
+        document.getElementById('local_container').appendChild(p)
+      });
     };
 
   </script>
