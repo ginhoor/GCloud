@@ -46,7 +46,7 @@
     padding: 0 2px;
     text-decoration: none;
     }
-    #container {
+    #container,#local_container {
       /* 顶部| 水平方向| 底部*/
       padding: 1em 2em 2em;
     }
@@ -63,7 +63,7 @@
 
     let host = "http://" + readFile("./network/ip/home_network_ip");
 
-    let local = "http://192.168.2.22";
+    let localhost = "http://192.168.2.22";
 
     function createA(url, desc) {
       var a = document.createElement('a')
@@ -80,15 +80,15 @@
 
     window.onload = (event) => {
       const dataList = [
-        [host+":1015","DSM"],
-        [host+":9091","Transmission"],
-        [host+":5700","Qinglong"],
-        [host+":4399","Dos Game"]
+        [":1015","DSM"],
+        [":9091","Transmission"],
+        [":5700","Qinglong"],
+        [":4399","Dos Game"]
       ]
 
       dataList.forEach(data => {
-        document.getElementById('container').appendChild(createP(createA(data[0],data[1])))
-        document.getElementById('local_container').appendChild(createP(createA(data[0],data[1])))
+        document.getElementById('container').appendChild(createP(createA(host+data[0],data[1])))
+        document.getElementById('local_container').appendChild(createP(createA(localhost+data[0],data[1])))
       });
     };
 
