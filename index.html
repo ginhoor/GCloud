@@ -79,18 +79,16 @@
     }
 
     window.onload = (event) => {
-      const aList = [
-        createA(host+":1015","DSM"),
-        createA(host+":9091","Transmission"),
-        createA(host+":5700","Qinglong"),
-        createA(host+":4399","Dos Game")
+      const dataList = [
+        (host+":1015","DSM"),
+        (host+":9091","Transmission"),
+        (host+":5700","Qinglong"),
+        (host+":4399","Dos Game")
       ]
 
-      aList.forEach(a => {
-        let p = createP(a)
-        document.getElementById('container').appendChild(p)
-        p = createP(a)
-        document.getElementById('local_container').appendChild(p)
+      dataList.forEach(data => {
+        document.getElementById('container').appendChild(createP(createA(data[0],data[1])))
+        document.getElementById('local_container').appendChild(createP(createA(data[0],data[1])))
       });
     };
 
