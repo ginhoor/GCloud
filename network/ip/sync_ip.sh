@@ -14,7 +14,7 @@ file_name="${tag}_network_ip"
 file_path=${dirname}/${file_name}
 echo ${file_path}
 
-get_network_ip_api="http://cip.cc"
+get_network_ip_api="https://api.ipify.org"
 ############################################################
 
 network_ip_result=$(curl ${get_network_ip_api})
@@ -52,6 +52,7 @@ if [ ${need_update} -eq 1 ];then
     echo ${network_ip} > ${file_path}
     # 切回项目地址
     cd ${dirname}/../../
+    export https_proxy=http://127.0.0.1:7890;export http_proxy=http://127.0.0.1:7890;export all_proxy=socks5://127.0.0.1:7890
     git pull
     git add .
     git commit -m "更新外网IP"
