@@ -14,7 +14,7 @@ file_name="${tag}_network_ip"
 file_path=${dirname}/${file_name}
 echo ${file_path}
 
-get_network_ip_api="https://api.ipify.org"
+get_network_ip_api="ifconfig.me"
 ############################################################
 
 network_ip_result=$(curl ${get_network_ip_api})
